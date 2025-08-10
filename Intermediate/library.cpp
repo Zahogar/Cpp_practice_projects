@@ -55,11 +55,8 @@ public:
 
     void editBook(std::string title, std::string author) {
 
-        int idx = _find_book_from_auth_x_title(title, author);
-        
-        assert(it != _bookshelves.end());
-
-        int idx_bookshelves = std::distance(_bookshelves.begin(), it);
+        int idx = _find_book_from_auth_x_title(title, author)[0];
+        Book book = _bookshelves[idx];
         
         std::cout << "What do you want to change ?\n";
         std::cout << "1 : Title\n2 : Author\n3 : Year of release\n4 : Publisher\n5 : Language\n6 : Number of pages\n7 : Nothing\n"; 
@@ -113,36 +110,53 @@ public:
             return;
         }
 
-        _bookshelves[idx_bookshelves] = book;
-        
-        /*from_byTitle[idx_from_byTitle] = book;
-        _byTitle[title] = from_byTitle;
-
-        from_byAuthor[idx_from_byAuthor] = book;
-        _byAuthor[author] = from_byTitle;
-        */
-
+        _bookshelves[idx] = book;
         return;
-
     }
 
     void deleteBook(std::string title, std::string author) {
 
+        int idx = _find_book_from_auth_x_title(title, author);
+        _bookshelves.erase(idx);
+        return;
+    }
+
+    std::vector<Book> search(std::string category, std::string value) {
+        if (category == "Title") {
+            return _find_book_from_auth_x_title(value, "");
+        } else if (category == "Author") {
+            return _find_book_from_auth_x_title("", value);
+        } else {
+            throw std::runtime_error("Make sure the category is either 'Title' or 'Author'\n");
+        }
     }
 
 private:
     std::vector<Book> _bookshelves;
-    std::unordered_map<std::string, std::vector<Book>> _byTitle;
-    std::unordered_map<std::string, std::vector<Book>> _byAuthor;
 
     int _find_book_from_auth_x_title(std::string title, std::string author) {
         
-        for (int i = 0; i < _bookshelves.size(); i++) {
+        std::vector<Book> potential_results;
+        if (title.empty() || author.empty()) {
+            if (title.empty() && !author.empty()) {
+                for (int i = 0; i < _bookshelves.size(); i++) {
+                if (_bookshelves[i].Author == author) potential_results.push_back(i);
+                }
+            } else if (!title.empty() && author.empty()) {
+                for (int i = 0; i < _bookshelves.size(); i++) {
+                if (_bookshelves[i].Title == title) potential_results.push_back(i);
+                }
+            }
+        } else {
+        
+            for (int i = 0; i < _bookshelves.size(); i++) {
 
-            std::vector<Book> potential_results;
-            if (_bookshelves[i].Title == title && _bookshelves[i].Author == author) potential_results.push_back(_bookshelves[i]);
-            if (potential_results.size())
+                if (_bookshelves[i].Title == title && _bookshelves[i].Author == author) potential_results.push_back(i);
+                
+            }
+            if (potential_results.size() > 1) throw std::runtime_error("Found more than one book having both this title and author! =\n");
         }
+        return potential_results;
     }
 };
 
@@ -191,7 +205,7 @@ int main() {
     std::string title_to_edit = "The Eye of the World";
     my_library.editBook(title_to_edit, author);
     std::cout << "After editing, the library now contains " << my_library.getNumberOfBooks() << " books." << std::endl;
-    //my_library.deleteBook(title_to_edit, author);
+    my_library.deleteBook(title_to_edit, author);
     std::cout << "After deleting 'The Eye of the World', the library now contains " << my_library.getNumberOfBooks() << " books." << std::endl;
     return 0;
 }
