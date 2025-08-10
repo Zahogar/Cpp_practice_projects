@@ -1,0 +1,284 @@
+ideas for terminal RPG:
+
+>> a chance to get the item while fleeing (reduced in comparision of victory)
+
+>> Difficulties
+
+-> Every mob drops a loot but as difficulty increases, it gets harder to get good loot
+
+Rarities:
+
+Common      Wooden Sword        Leather Jacket/Simple Cape          Lead Ring               Wheat Doll/Rope/Rosary                  Cardboard Box with two holes
+Rare        Iron Sword          Plate/Chainmail Armor               Gold Ring               Voodoo Doll/Silver Pendant              Copper Gauntlets
+Epic        Netherrite Sword    Dragon Bone Armor/Superman Cape     Magic Imbued Earrings   Night Vision Goggles/Dynamite Stick     Steel Helmet
+Legendary   Callandor           Докторская Armor                    Sausage necklace        Juger P08/Hylian Shield
+
+>> LONGEST STRING
+"========================================================================================================================"
+
+>> Text easy-normal-hard difficulty
+
+=============== LOADING GAME ===============
+
+You find yourself inside a comfortable cart full of wheat.
+Suddenly, you hear a voice coming from the front of the cart.
+
+> Hey you, you're finally awake.
+> I see a dust fog that's coming toward us. I don't pay you to sleep all day, go take a look!
+
+While half asleep, you take your wooden sword and your necklace of sausages andjump off the cart, trying to identify 
+the source of the dust.
+
+As your feet touch the ground, you feel so dizzy that you cannot even remember your own name.
+It's on the tip of your tongue. It's ... {name}
+How could you forget your OWN name !
+
+Anyway, you finally identify the enemy.
+(Battle)
+    This is {monster} !! /// You're facing {m1} and {m2} !!
+    What do want to do: attack or flee
+    {answer}
+    {m1} is at {monster_hp}. /// You manage to escape without any injuries. /// You failed to escape. /// You're confused on what to choose. {monster} doesn't wait for you.
+    You're now at {hp}.
+    You died... /// You managed to kill {monster} successfuly
+
+You notice something shiny from the corpse.
+It's {item} !
+{item} gives {item stats} !
+
+As you just defeated your first oponent, two others are approaching swiftly.
+(Battle)
+
+As strangely as the first time, you get two other items.
+They are {item1} and {item2} !
+{item1} gives {item1 stats} !
+{item2} gives {item2 stats} !
+
+> Wow, you defeated them so easily !
+> And my shipment is unscated ! This deserves a bonus !
+> Here, drink this potion and rest in my cart.
+
+You drink this disguting mixture because why not.
+After all, you are on the brink of death.
+You feel the smarmy warm liquid going down your throat as if you were drinking someone's diarrhea.
+
+As soon as you lay, you fell into a deep sleep.
+The dream you are in feels familiar, you know this place.
+Wait, this YOUR home! But something feels different.
+
+By exploring an oddly familiar yet unknown world, you start to understand.
+You are in Tel'aran'rhiod, the legendary world of dream strangely linked to reality.
+Every wound you take here is real.
+
+While walking on one path, you are attacked by {monster}.
+(Battle)
+
+You find {item} on the corpse.
+{item} gives {item stats} !
+
+>> (Boss easy)
+    You're kind of afraid to continue, your walk but do it anyway because you don't know how to get out of Tel'aran'rhiod.
+    As you continue you walk, you encounter Gen'duel the frightening, the legendary road thief!!
+    > Alright {name}, let's fight !
+    This is going to be a tough battle.
+
+    What do want to do: attack or flee
+    {answer}
+    Gen'duel the frightening is at {monster_hp}. /// You manage to escape without any injuries. /// You failed to escape. /// You're confused on what to choose. Gen'duel the frightening doesn't wait for you.
+    You're now at {hp}.
+    You died... /// You've defeted Gen'duel the frightening successfuly.
+
+    You are exhausted from this fight and go straight to your bed...
+
+>> ELSE
+
+You wake up with a headache, but without a trace of any wound, chained inside a gloomy cell.
+You hear a voice... It's the merchant's.
+
+> Ah, you'll be a formidable entertainment !
+
+You realize that this jerk sold you as a gladiator in an illegal arena.
+Now you have to fight for your liberty as for your life.
+
+The rules of the arena are simple: you can only get out if the crowd wants it, 
+and if you defeat an ennemy, you get its equipment.
+
+Before entering the scene, you get back your equipment, yes even the one you got while dreaming.
+Brace yourself, your fights will be harder as you kill more opponents.
+
+For the first match, it's only one monster.
+(Battle)
+
+Following the rules, you take {item} !
+{item} gives {item stats} !
+
+Now, two at once !
+(Battle)
+
+From the lacerated corpses of the monster you oblirated, you choose {item1} and {item2}!
+{item1} gives {item1 stats} !
+{item2} gives {item2 stats} !
+
+>> (Boss normal)
+    The voice of the announcer resound through the overly loud speakers.
+    > Now, lady and gentleman, it is time for the greatest fight of all time !
+    > The rookie: {name} against the legendary: Alcathor the great !
+    
+    The theme song of Alcathor [Baby Shark] is blowing out of the speakers and the crowd is going crazy.
+    The song won't stop, you have to beat him under these conditions.
+    (battle)
+
+    You're crown as the best fighter. 
+    Unfortunatly, you'll have to fight until you die (even of old age) 
+    because the public is thrilled at every single one of your fights.
+
+>> ELSE
+
+After, you've defeated mediocrily all your opponents, the public is bored and free you.
+You come out of a manhole in the middle of a small town.
+You so dirty that everyone that sees you is taking you for a beggar.
+
+One soul takes pitty of you and give you an {item}!
+{item} gives {item stats} !
+
+You remember who put you through all this trouble: it's the merchand !
+After all, he didn't even pay you for your services on the road !!
+There you choose to go talk to every trader to see if they know him.
+
+You get several kind of answers: 
+> No, never seen. ; > Yes, yes, yes, eeeeh, finally no. ; > Get out of my face disgusting beggar !!
+
+No info at all. There is still your last chance: Clement the bartender.
+You enter the western-like bar and go straight to the counter while dodging every disgusted look of the other clients.
+
+> Hey you, I've never seen you before. What makes you come here ?
+
+It's Clement. You briefly explain your situation and ask for some info about the mysterious trader.
+
+> Hmmm... I may or may not know him, if you know what I mean.
+
+Of course, you have to pay him to get them. You hand him your gains from the arena.
+
+> I haven't seen him personnaly but I know someone who, for sure, have a way to get to him.
+> Follow me in the back.
+
+The back is moody. You follow Clement into his cellar where he meets with his network of spies.
+Here you meet Kagax, a singular person who seems a little be deranged (this is an understatement).
+
+> Well, you want to know more about Mr.White ??
+> Here's what I can tell you, he lives inside a manor in the south of the town.
+> I don't why he likes to disguise as a trader when he clearly as enough money to buy the whole land.
+> If you want to attack him, may the Vis Arcana be with you !
+
+You note all those information in a part of your brain, get out of the bar and go to this manor.
+
+The estate is far too guarded to try entering under daylight.
+You also notice a sewer entrance from an nearby alley.
+What do you want to do... wait or try the sewers ?
+
+>> IF WAIT 
+    Luck is with you because this night is a New Moon.
+    You look around the house to see if there's any easier way to enter than knocking.
+    The backdoor seems perfect for this job.
+    What do you want to do ? knock or pick
+
+    >> IF knock
+        The door is unlocked...
+        The place is marvelous, everything seems to cost more that any other house of the city.
+    
+    >> IF PICK 
+        You try to pick the door...
+        Nothing happened, the lock seems too hard.
+        Let's try once again...
+        
+        The door opens, not because you succeeded, but because {a Guard} opened it.
+        You have no choice but to fight.
+        (battle)
+
+        You collect {item} from the corpse.
+        {item} gives {item stats} !
+
+        The room you're in is a kind of food safe.
+        Why not eat some while you're at it ?!
+        (heal)
+
+    >> ELSE
+        You wait a little...
+        GOTO What do you want to do ? knock or pick
+
+    Suddenly, you hear a scream from the basement of the manor.
+    You find the stairs and descend.
+
+
+>> IF SEWER
+    Making sure nobody saw you, you enter the sewers.
+    The place stinks as it should but you see a sewer tunnel that comes from the manor.
+    Slowly you make your way to the manor.
+
+    However, a mass that was laid down suddenly rise up, it's {monster}.
+    (battle)
+
+    You collect {item} from the corpse.
+    {item} gives {item stats} !
+
+    (heal)
+    You also drink a potion that looks like a regeneration potion.
+    You see a door that connects to the basement of the manor.
+
+You find yourself inside a kind of prison cell with multiple iron doors.
+You try to open them one by one but none, except for one, are unlocked.
+
+Feeling near the end, you pass the doorway. 
+You're in a gigantic room that is weirdly similar to the arena.
+
+> I knew you would come sooner or later...
+> You were not entertaining at all in the arena, some of my friends won't listen to me anymore.
+> I was expecting better...
+> Die you hobo bastard !!!
+
+A portcullis goes up and {m1 - m4} are running out of the previouly blocked entrance.
+(battle)
+
+> How did you survive ? (Nice fight by the way).
+> Now I, Icarag the fallen,  have to kill you myself.
+
+You quickly find on the ground and drink a instant health 2 potion.
+Icarag the fallen spares you no time, you have to fight.
+(battle)
+
+You've defeated anybody who stood on your path...
+You will very likely die a hobo.
+
+
+Why not trying a more unusual difficulty next time ?
+
+
+
+
+
+>> Text secret difficulty
+
+Your legs surprisingly goes numb and you get knocked out as the side of your head hit the ground.
+You're not dead, just transported to an other place.
+
+You're kinda lost, it is like a palace but the place is filled by the scent of perfectly cooked sausages.
+You inside the hall, and right before the gigantic door that leads to the throne room, there are 8 slot machines.
+A voice comes from the room.
+
+> You better get prepared before fighting against Zahogar the almighty !
+> Each slot machine gives you a piece of equipment.
+
+With no other choice, you pull the lever of all the 8 slot machines.
+{item} gives {item stats} ! x8
+
+Now fully equiped, the doors open and you are facing Zahogar the almighty.
+(battle)
+
+HOOOOOOOOOOOOOOOOOOOOOOOOOOW ?!?!?!?!?!
+WHAT THE HEEEEEEEEEEEEEEEELLL !!!!!!!!!!!!
+Wait, let me process... [UIIA IAU UUIIA]
+
+Ok, it is unexpected I must say.
+I think I have no other choice.
+
+Congratulation {name}, you are now the evil silly castle sausage pig's master and also the emperor of sausages.  
