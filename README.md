@@ -6,10 +6,6 @@ Asked ChatGPT to give me a list of project in C++ to learn how to code in that l
 
 ## Beginner projects
 
-Here are some beginner-friendly project ideas to help you practice and build your skills in C++:
-
----
-
 * Number Guessing Game
 
     Create a program that generates a random number between 1 and 100. The player tries to guess the number, and the program provides feedback ("too high," "too low") after each guess.
