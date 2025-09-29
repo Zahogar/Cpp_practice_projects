@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <pair>
 #include <cassert>
 
 class Book{
@@ -36,6 +35,8 @@ public:
     }
 
 };
+
+
 
 class Library {
 public:
@@ -116,12 +117,40 @@ public:
 
     void deleteBook(std::string title, std::string author) {
 
-        int idx = _find_book_from_auth_x_title(title, author);
-        _bookshelves.erase(idx);
+        std::vector<int> idx = _find_book_from_auth_x_title(title, author);
+        if (idx.empty()) {
+            std::cout << "Book not found!\n";
+        } else if (idx.size() > 1) {
+            std::cout << "More than one book found!\n";
+            std::cout << "Do you wish to delete them all ?\n";
+            
+            std::string answer;
+            std::cin >> answer;
+            if (answer == "y") {
+                int last;
+                Book tmp_book;
+                for (int e:idx) {
+                    last = _bookshelves.size()-1;
+                    tmp_book = _bookshelves[last];
+                    _bookshelves.at(last) = _bookshelves[e];
+                    _bookshelves.at(e) = tmp_book;
+                    _bookshelves.pop_back();
+                }
+            }
+            else {
+                std::cout << "Deletion aborted (needed 'y' to proceed)\n";
+            }
+        } else {
+            int last = _bookshelves.size()-1;
+            Book tmp_book = _bookshelves[last];
+            _bookshelves.at(last) = _bookshelves[idx[0]];
+            _bookshelves.at(idx[0]) = tmp_book;
+            _bookshelves.pop_back();
+        }
         return;
     }
 
-    std::vector<Book> search(std::string category, std::string value) {
+    std::vector<int> search(std::string category, std::string value) {
         if (category == "Title") {
             return _find_book_from_auth_x_title(value, "");
         } else if (category == "Author") {
@@ -134,9 +163,9 @@ public:
 private:
     std::vector<Book> _bookshelves;
 
-    int _find_book_from_auth_x_title(std::string title, std::string author) {
+    std::vector<int> _find_book_from_auth_x_title(std::string title, std::string author) {
         
-        std::vector<Book> potential_results;
+        std::vector<int> potential_results;
         if (title.empty() || author.empty()) {
             if (title.empty() && !author.empty()) {
                 for (int i = 0; i < _bookshelves.size(); i++) {
