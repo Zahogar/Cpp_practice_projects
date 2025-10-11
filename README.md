@@ -1,8 +1,8 @@
-# ChatGPT_Cpp_projects
+# Cpp_practice_projects
 
 ## Quick description
 
-Asked ChatGPT to give me a list of project in C++ to learn how to code in that language.
+I asked ChatGPT to give me a list of project in C++ to learn how to code in that language.
 
 ## Beginner projects
 
