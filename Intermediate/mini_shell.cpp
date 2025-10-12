@@ -6,13 +6,10 @@
 #include <unordered_set>
 #include <cstdlib>
 #include <unistd.h>
+#include <sys/wait.h>
 
 
 // Useful functions
-
-void toLowerInPlace(std::string& str) {
-    std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c) { return std::tolower(c); });
-}
 
 std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> tokens;
@@ -79,11 +76,23 @@ void cd_cmd(std::vector<std::string>& args) {
 }
 
 void help_cmd() {
-    std::cout << "Here's the list of available commands:\n";
-    std::cout << "exit [n]  -- exit the shell with the value n\n";
-    std::cout << "cd [path] -- enter the directory at the end of the path\n";
-    std::cout << "pwd       -- display the current working directory\n";
-    std::cout << "help      -- display this menu\n";
+    std::cout << "\n===== Mini Shell Help =====\n\n";
+    
+    std::cout << "Built-in Commands:\n";
+    std::cout << "  exit [n]     Exit the shell with optional exit code n\n";
+    std::cout << "  cd [path]    Change directory to path (use ~ for home)\n";
+    std::cout << "  pwd          Print current working directory\n";
+    std::cout << "  help         Display this help message\n\n";
+    
+    std::cout << "External Commands:\n";
+    std::cout << "  Any executable in your PATH can be run\n";
+    std::cout << "  Examples: ls, cat, echo, grep, ps, top, mkdir, etc.\n\n";
+    
+    std::cout << "Usage:\n";
+    std::cout << "  Simply type a command and press Enter\n";
+    std::cout << "  Example: ls -l\n";
+    std::cout << "  Example: cd /home\n\n";
+    
     return;
 }
 
@@ -132,6 +141,28 @@ void bi_cmd_parser(std::vector<std::string>& split_vector) {
     return;
 }
 
+void ext_cmd_parser(std::vector<std::string>& split_vector){
+    pid_t pid = fork();
+    int status;
+    std::vector<char*> args;
+
+    //conversion of data type (std::string -> char*)
+    for (size_t i = 0; i < split_vector.size(); i++) {
+        args.push_back(const_cast<char*>(split_vector[i].c_str()));
+    }
+    args.push_back(nullptr);
+
+    // child perspective
+    if (pid == 0) {
+        execvp(args[0], args.data());
+        std::cerr << "[ERROR] <from ext_parser> Unrecognized command. Use the command 'help' to see the list of available commands.\n";
+        std::exit(1);
+    } else { // parent perspective
+        waitpid(pid, &status, 0);
+    }
+
+    return;
+}
 
 void fst_cmd_parser(std::vector<std::string>& split_vector) {
 
@@ -140,8 +171,9 @@ void fst_cmd_parser(std::vector<std::string>& split_vector) {
     if (build_in_cmd.find(split_vector[0]) != build_in_cmd.end()) {
         bi_cmd_parser(split_vector);
     } else {
-        std::cerr << "[ERROR] <from fst_parser> - Couldn't find the command. Use the command 'help' to see the list of available commands.\n";
+        ext_cmd_parser(split_vector);
     }
+    
     return;
 }
 
